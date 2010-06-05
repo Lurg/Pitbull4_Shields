@@ -102,9 +102,7 @@ end
  
  
 PitBull4_PriestShields:SetLayoutOptionsFunction(function(self)
-	return
-	
-	"hide_empty", {
+	return "hide_empty", {
 		type = "toggle",
 		name = "Hide empty bar",
 		desc = "Check this, to hide the PriestShields if empty.",
