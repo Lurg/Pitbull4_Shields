@@ -72,7 +72,7 @@ end
 -- This is mildly trickified because DA can get topped up by subsequent procs, but that's fine
 function PitBull4_PriestShields:GetValue(frame, bar_db)
 	if not frame.unit then return end
-	local unitName = GetUnitName(frame.unit)
+	local unitName = GetUnitName(frame.unit,true)
 	local currentPWS = LightMeter_ShieldTable[unitName]
 	local maxPWS = LightMeter_MaxShieldTable[unitName]
 	local currentDA = LightMeter_DivineAegisTable[unitName]
