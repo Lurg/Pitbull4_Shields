@@ -22,6 +22,7 @@ PitBull4_PriestShields:SetDescription("Display bars for remaining amount of prie
 PitBull4_PriestShields:SetDefaults({
 	enabled = false,
 	first = true,
+	hide_empty = true,
 })
 
 local timerFrame = CreateFrame("Frame")
