@@ -5,12 +5,7 @@ if not PitBull4 then
 	error("PitBull4_PriestShields requires PitBull4")
 end
 
-
-local function debug (...)
-	SSS:Print(...)
-end
-
-
+local EXAMPLE_VALUE = 0.3
 
 local L = PitBull4.L
 
@@ -31,25 +26,40 @@ timerFrame:SetScript("OnUpdate", function()
 	PitBull4_PriestShields:UpdateAll()
 end)
 
+
+PitBull4_PriestShields_combatFrame = CreateFrame("Frame")
+PitBull4_PriestShields_combatFrame:Hide()
+PitBull4_PriestShields_combatFrame.shields = {
+            ["Power Word: Shield"] = { max = {}, cur = {} },
+            ["Divine Aegis"] = { max = {}, cur = {} },
+}
+PitBull4_PriestShields_combatFrame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+PitBull4_PriestShields_combatFrame:SetScript("OnEvent", function(self, event, timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, ...)
+    if(not srcGUID == UnitGUID("player")) then return end
+
+   if eventtype == "SPELL_AURA_REFRESH" or
+   eventtype == "SPELL_AURA_REMOVED" or eventtype == "SPELL_AURA_APPLIED" then
+      spellID,spellName,spellSchool,auraType,auraAmount = select(1,...)
+   else
+      return
+   end
+   if self.shields[spellName] then
+      if eventtype == "SPELL_AURA_APPLIED" or eventtype == "SPELL_AURA_REFRESH" then
+          if eventtype == "SPELL_AURA_APPLIED" then
+              self.shields[spellName].max[dstGUID] = auraAmount
+          end
+          self.shields[spellName].cur[dstGUID] = auraAmount
+      elseif eventtype == "SPELL_AURA_REMOVED" then
+        self.shields[spellName].max[dstGUID] = nil
+        self.shields[spellName].cur[dstGUID] = nil
+      end
+   end
+end)
+
+
 function PitBull4_PriestShields:OnEnable()
 	timerFrame:Show()
-
---  If/when we track the shields ourself instead of using LightMeter, then we'll need to do these, and implement the handlers
-
---	self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
---	self:RegisterEvent("UNIT_SPELLCAST_SENT")
---	self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-
 end
-
-
--- Event handlers for the various types
---function PitBull4_PriestShields:UNIT_SPELLCAST_SUCCEEDED(event, ...)
---end
---function PitBull4_PriestShields:UNIT_SPELLCAST_SENT(event, ...)
---end
---function PitBull4_PriestShields:COMBAT_LOG_EVENT_UNFILTERED(event, ...)
---end
 
 
 function PitBull4_PriestShields:OnDisable()
@@ -73,11 +83,11 @@ end
 -- This is mildly trickified because DA can get topped up by subsequent procs, but that's fine
 function PitBull4_PriestShields:GetValue(frame, bar_db)
 	if not frame.unit then return end
-	local unitName = GetUnitName(frame.unit,true)
-	local currentPWS = LightMeter_ShieldTable[unitName]
-	local maxPWS = LightMeter_MaxShieldTable[unitName]
-	local currentDA = LightMeter_DivineAegisTable[unitName]
-	local maxDA = LightMeter_MaxDATable[unitName]
+	local dstGUID = UnitGUID(frame.unit)
+	local currentPWS = PitBull4_PriestShields_combatFrame.shields["Power Word: Shield"].cur[dstGUID]
+	local maxPWS = PitBull4_PriestShields_combatFrame.shields["Power Word: Shield"].max[dstGUID]
+	local currentDA = PitBull4_PriestShields_combatFrame.shields["Divine Aegis"].cur[dstGUID]
+	local maxDA = PitBull4_PriestShields_combatFrame.shields["Divine Aegis"].max[dstGUID]
 
 	if (not maxPWS) and (not maxDA) then
 		return not bar_db.hide and 0 -- no shields are up, maybe hide when empty
@@ -93,7 +103,7 @@ end
 
 
 function PitBull4_PriestShields:GetExampleValue(frame, bar_db)
-	return 1
+	return EXAMPLE_VALUE
 end
 
 
