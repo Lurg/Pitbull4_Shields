@@ -1,8 +1,0 @@
-## Interface: 40000
-## Title: PitBull4 PriestShields
-## Notes: Shows a bar for the estimated remaning PW:S and Divine Aegis on a unit
-## Author: Padragen of Kirin Tor, rewritten based on SPELL_AURA_APPLIED/REFRESH/REMOVED
-## Dependencies: PitBull4
-## X-Revision: 1
-
-PitBull4_PriestShields.lua
