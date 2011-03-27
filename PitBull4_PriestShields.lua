@@ -30,8 +30,17 @@ end)
 PitBull4_PriestShields_combatFrame = CreateFrame("Frame")
 PitBull4_PriestShields_combatFrame:Hide()
 PitBull4_PriestShields_combatFrame.shields = {
+            -- Priest stuff
             ["Power Word: Shield"] = { max = {}, cur = {} },
             ["Divine Aegis"] = { max = {}, cur = {} },
+            -- DK stuff
+            ["Blood Shield"] = { max = {}, cur = {} },
+            -- Paladin stuff
+            ["Illuminated Healing"] = { max = {}, cur = {} },
+            ["Sacred Shield"] = { max = {}, cur = {} },
+            -- Mage
+            ["Mana Shield"] = { max = {}, cur = {} },
+            ["Ice Barrier"] = { max = {}, cur = {} },
 }
 PitBull4_PriestShields_combatFrame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 PitBull4_PriestShields_combatFrame:SetScript("OnEvent", function(self, event, timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, ...)
@@ -79,26 +88,25 @@ end
 
 
 -- Need to return a value between 0 and 1 representing the %age of shield that's left
--- To do this, we need to know what the max vale of the shield was, when it went up, as well as the current value
--- This is mildly trickified because DA can get topped up by subsequent procs, but that's fine
+-- To do this, we cycle through all shield types to know what the max vale of the shield was when it went up, as well as the current value
 function PitBull4_PriestShields:GetValue(frame, bar_db)
 	if not frame.unit then return end
 	local dstGUID = UnitGUID(frame.unit)
-	local currentPWS = PitBull4_PriestShields_combatFrame.shields["Power Word: Shield"].cur[dstGUID]
-	local maxPWS = PitBull4_PriestShields_combatFrame.shields["Power Word: Shield"].max[dstGUID]
-	local currentDA = PitBull4_PriestShields_combatFrame.shields["Divine Aegis"].cur[dstGUID]
-	local maxDA = PitBull4_PriestShields_combatFrame.shields["Divine Aegis"].max[dstGUID]
 
-	if (not maxPWS) and (not maxDA) then
-		return not bar_db.hide and 0 -- no shields are up, maybe hide when empty
-	end
+    local current=0
+    local max = 0
+    for shield, shields in pairs(PitBull4_PriestShields_combatFrame.shields) do
+        current = current + (shields.cur[dstGUID] or 0)
+        max = max + (shields.max[dstGUID] or 0)
+    end
+
+    if(max == 0) then
+        return not bar_db.hide and 0 -- no shields are up, maybe hide when empty
+    end
 
 	-- IF we got here, then at least one shield is up
 
-	local currentShield = (currentPWS or 0) + (currentDA or 0)
-	local maxShield = (maxPWS or 0) + (maxDA or 0)
-
-	return currentShield / maxShield
+	return current / max
 end
 
 
