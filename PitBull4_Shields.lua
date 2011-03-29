@@ -40,7 +40,11 @@ PitBull4_Shields_combatFrame.shields = {
             ["Sacred Shield"] = { max = {}, cur = {} },
             -- Mage
             ["Mana Shield"] = { max = {}, cur = {} },
+            ["Mage Ward"] = { max = {}, cur = {} },
             ["Ice Barrier"] = { max = {}, cur = {} },
+            -- Warlock
+            ["Shadow Ward"] = { max = {}, cur = {} },
+            ["Nether Ward"] = { max = {}, cur = {} },
 }
 PitBull4_Shields_combatFrame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, ...)
