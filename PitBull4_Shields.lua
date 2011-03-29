@@ -2,19 +2,19 @@ if select(6, GetAddOnInfo("PitBull4_" .. (debugstack():match("[o%.][d%.][u%.]les
 
 local PitBull4 = _G.PitBull4
 if not PitBull4 then
-	error("PitBull4_PriestShields requires PitBull4")
+	error("PitBull4_Shields requires PitBull4")
 end
 
 local EXAMPLE_VALUE = 0.3
 
 local L = PitBull4.L
 
-local PitBull4_PriestShields = PitBull4:NewModule("PriestShields")
+local PitBull4_Shields = PitBull4:NewModule("Shields")
 
-PitBull4_PriestShields:SetModuleType("bar_provider")
-PitBull4_PriestShields:SetName("PriestShields")
-PitBull4_PriestShields:SetDescription("Display bars for remaining amount of priest shielding (PW:S and DA) on the unit")
-PitBull4_PriestShields:SetDefaults({
+PitBull4_Shields:SetModuleType("bar_provider")
+PitBull4_Shields:SetName("Shields")
+PitBull4_Shields:SetDescription("Display bars for remaining amount of priest shielding (PW:S and DA) on the unit")
+PitBull4_Shields:SetDefaults({
 	enabled = false,
 	first = true,
 	hide_empty = true,
@@ -23,13 +23,13 @@ PitBull4_PriestShields:SetDefaults({
 local timerFrame = CreateFrame("Frame")
 timerFrame:Hide()
 timerFrame:SetScript("OnUpdate", function()
-	PitBull4_PriestShields:UpdateAll()
+	PitBull4_Shields:UpdateAll()
 end)
 
 
-PitBull4_PriestShields_combatFrame = CreateFrame("Frame")
-PitBull4_PriestShields_combatFrame:Hide()
-PitBull4_PriestShields_combatFrame.shields = {
+PitBull4_Shields_combatFrame = CreateFrame("Frame")
+PitBull4_Shields_combatFrame:Hide()
+PitBull4_Shields_combatFrame.shields = {
             -- Priest stuff
             ["Power Word: Shield"] = { max = {}, cur = {} },
             ["Divine Aegis"] = { max = {}, cur = {} },
@@ -42,9 +42,9 @@ PitBull4_PriestShields_combatFrame.shields = {
             ["Mana Shield"] = { max = {}, cur = {} },
             ["Ice Barrier"] = { max = {}, cur = {} },
 }
-PitBull4_PriestShields_combatFrame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-PitBull4_PriestShields_combatFrame:SetScript("OnEvent", function(self, event, timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, ...)
-    if(not srcGUID == UnitGUID("player")) then return end
+PitBull4_Shields_combatFrame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, ...)
+--    if(not(srcGUID == UnitGUID("player"))) then return end
 
    if eventtype == "SPELL_AURA_REFRESH" or
    eventtype == "SPELL_AURA_REMOVED" or eventtype == "SPELL_AURA_APPLIED" then
@@ -66,17 +66,17 @@ PitBull4_PriestShields_combatFrame:SetScript("OnEvent", function(self, event, ti
 end)
 
 
-function PitBull4_PriestShields:OnEnable()
+function PitBull4_Shields:OnEnable()
 	timerFrame:Show()
 end
 
 
-function PitBull4_PriestShields:OnDisable()
+function PitBull4_Shields:OnDisable()
 	timerFrame:Hide()
 end
 
 
-function PitBull4_PriestShields:OnNewLayout(layout)
+function PitBull4_Shields:OnNewLayout(layout)
 	local layout_db = self.db.profile.layouts[layout]
 	
 	if layout_db.first then
@@ -89,13 +89,13 @@ end
 
 -- Need to return a value between 0 and 1 representing the %age of shield that's left
 -- To do this, we cycle through all shield types to know what the max vale of the shield was when it went up, as well as the current value
-function PitBull4_PriestShields:GetValue(frame, bar_db)
+function PitBull4_Shields:GetValue(frame, bar_db)
 	if not frame.unit then return end
 	local dstGUID = UnitGUID(frame.unit)
 
     local current=0
     local max = 0
-    for shield, shields in pairs(PitBull4_PriestShields_combatFrame.shields) do
+    for shield, shields in pairs(PitBull4_Shields_combatFrame.shields) do
         current = current + (shields.cur[dstGUID] or 0)
         max = max + (shields.max[dstGUID] or 0)
     end
@@ -110,17 +110,17 @@ function PitBull4_PriestShields:GetValue(frame, bar_db)
 end
 
 
-function PitBull4_PriestShields:GetExampleValue(frame, bar_db)
+function PitBull4_Shields:GetExampleValue(frame, bar_db)
 	return EXAMPLE_VALUE
 end
 
 
-function PitBull4_PriestShields:GetColor(frame, bar_db, value)
+function PitBull4_Shields:GetColor(frame, bar_db, value)
 	return 1, 1, 1
 end
  
  
-PitBull4_PriestShields:SetLayoutOptionsFunction(function(self)
+PitBull4_Shields:SetLayoutOptionsFunction(function(self)
 	return "hide_empty", {
 		type = "toggle",
 		name = "Hide empty bar",
