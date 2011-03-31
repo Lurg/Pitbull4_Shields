@@ -9,23 +9,23 @@ This module allows you to add a bar to your Pitbull4 frames, where the extra bar
 Currently it know about these shields:
 
  * Priest
-  - Power Word: Shield
-  - Divine Aegis
+    - Power Word: Shield
+    - Divine Aegis
  * Death Knight
-  - Blood Shield
+    - Blood Shield
  * Paladin
-  - Illuminated Healing
-  - Sacred Shield
+    - Illuminated Healing
+    - Sacred Shield
 
 It wishes it would know about these, but they don't work the same way in the combat log as the ones above, so getting these working is a TODO:
 
  *  Mage
-  -  Mana Shield
-  -  Mage Ward
-  -  Ice Barrier
+    -  Mana Shield
+    -  Mage Ward
+    -  Ice Barrier
  *  Warlock
-  -  Shadow Ward
-  -  Nether Ward
+    -  Shadow Ward
+    -  Nether Ward
 
 
 It will show those shields on any unit frame the bar's enabled for, whether they're the unit that cast the shield or not.  The idea is if you're a Disc priest, you can shield your tank and know how much damage is left on that shield before you need to refresh it.
