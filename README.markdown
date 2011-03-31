@@ -25,13 +25,11 @@ This is how you do it:
 6. "Attach to" wherever you want it to show up, configure it to look the way you want.  I attach to "Shields: default", "Middle" for location.
 7. Under "Code" choose "Custom", then in the box below, enter this code:
 
-
-    local current=0
+    `local current=0
     for s,ss in pairs(PitBull4_Shields_combatFrame.shields) do
       current = current + (ss.cur[UnitGUID(unit)] or 0)
     end
-    return string.format("|cffff0000%0.1fk",current/1000)
-
+    return string.format("|cffff0000%0.1fk",current/1000)`
 
 8. "Events", you want to select `COMBAT_LOG_EVENT_UNFILTERED` and `UNIT_AURA` both.  Deselect the others.
 
