@@ -7,23 +7,25 @@ Overview
 This module allows you to add a bar to your Pitbull4 frames, where the extra bar will show you the remaing amount (not remaining time) of any shield(s) on that target.  You can also use a Lua text to read the values and overlay those as a text element wherever you might want.  I'll show you the code that below.  It's not automatically integrated to export to just show up magically in Pitbull's list yet, though that's a TODO.
 
 Currently it know about these shields:
-    * Priest
-        - Power Word: Shield
-        - Divine Aegis
-    * Death Knight
-        - Blood Shield
-    * Paladin
-        - Illuminated Healing
-        - Sacred Shield
+
+ * Priest
+  - Power Word: Shield
+  - Divine Aegis
+ * Death Knight
+  - Blood Shield
+ * Paladin
+  - Illuminated Healing
+  - Sacred Shield
 
 It wishes it would know about these, but they don't work the same way in the combat log as the ones above, so getting these working is a TODO:
-    *  Mage
-        -  Mana Shield
-        -  Mage Ward
-        -  Ice Barrier
-    *  Warlock
-        -  Shadow Ward
-        -  Nether Ward
+
+ *  Mage
+  -  Mana Shield
+  -  Mage Ward
+  -  Ice Barrier
+ *  Warlock
+  -  Shadow Ward
+  -  Nether Ward
 
 
 It will show those shields on any unit frame the bar's enabled for, whether they're the unit that cast the shield or not.  The idea is if you're a Disc priest, you can shield your tank and know how much damage is left on that shield before you need to refresh it.
