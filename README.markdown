@@ -27,8 +27,10 @@ It wishes it would know about these, but they don't work the same way in the com
     -  Shadow Ward
     -  Nether Ward
 
+If you know of other shields people might want to track, let me know and I'll see about adding them.
 
 It will show those shields on any unit frame the bar's enabled for, whether they're the unit that cast the shield or not.  The idea is if you're a Disc priest, you can shield your tank and know how much damage is left on that shield before you need to refresh it.
+
 
 
 Configuration
