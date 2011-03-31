@@ -56,6 +56,8 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
    else
       return
    end
+
+--   print(srcName,srcGUID,UnitGUID("player"),spellName,auraType,auraAmount,eventtype)
    if self.shields[spellName] then
       if eventtype == "SPELL_AURA_APPLIED" or eventtype == "SPELL_AURA_REFRESH" then
           if eventtype == "SPELL_AURA_APPLIED" then
