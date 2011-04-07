@@ -13,7 +13,7 @@ local PitBull4_Shields = PitBull4:NewModule("Shields")
 
 PitBull4_Shields:SetModuleType("bar_provider")
 PitBull4_Shields:SetName("Shields")
-PitBull4_Shields:SetDescription("Display bars for remaining amount of priest shielding (PW:S and DA) on the unit")
+PitBull4_Shields:SetDescription("Display bars for remaining amount of shielding on the unit")
 PitBull4_Shields:SetDefaults({
 	enabled = false,
 	first = true,
@@ -130,7 +130,7 @@ PitBull4_Shields:SetLayoutOptionsFunction(function(self)
 	return "hide_empty", {
 		type = "toggle",
 		name = "Hide empty bar",
-		desc = "Check this, to hide the PriestShields if empty.",
+		desc = "Check this to hide the Shields bar if empty",
 		get = function(info)
 			local bar_db = PitBull4.Options.GetBarLayoutDB(self)
 			return bar_db and bar_db.hide
