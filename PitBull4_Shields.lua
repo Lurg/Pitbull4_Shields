@@ -12,8 +12,8 @@ local L = PitBull4.L
 local PitBull4_Shields = PitBull4:NewModule("Shields")
 
 PitBull4_Shields:SetModuleType("bar_provider")
-PitBull4_Shields:SetName(L("Shields"))
-PitBull4_Shields:SetDescription(L("Display bars for remaining amount of shielding on the unit"))
+PitBull4_Shields:SetName(L["Shields"])
+PitBull4_Shields:SetDescription(L["Display bars for remaining amount of shielding on the unit"])
 PitBull4_Shields:SetDefaults({
 	enabled = false,
 	first = true,
@@ -131,8 +131,8 @@ end
 PitBull4_Shields:SetLayoutOptionsFunction(function(self)
 	return "hide_empty", {
 		type = "toggle",
-		name = L("Hide empty bar"),
-		desc = L("Check this to hide the Shields bar if empty"),
+		name = L["Hide empty bar"],
+		desc = L["Check this to hide the Shields bar if empty"],
 		get = function(info)
 			local bar_db = PitBull4.Options.GetBarLayoutDB(self)
 			return bar_db and bar_db.hide
@@ -148,8 +148,8 @@ PitBull4_Shields:SetLayoutOptionsFunction(function(self)
 		end
 	}, "just_mine", {
 	    type = "toggle",
-	    name = L("Only show my shields"),
-	    desc = L("Check this to only show shields that you cast, rather than all shields on the unit"),
+	    name = L["Only cast by me"],
+	    desc = L["Check this to only show shields that you cast, rather than all shields on the unit"],
 	    get = function(info)
 	        local bar_db = Pitbull4.Options.GetBarLayoutDB(self)
 			return bar_db and bar_db.just_mine
