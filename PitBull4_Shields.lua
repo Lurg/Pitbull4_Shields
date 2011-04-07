@@ -47,10 +47,8 @@ PitBull4_Shields_combatFrame.shields = {
             ["Shadow Ward"] = { max = {}, cur = {} },
             ["Nether Ward"] = { max = {}, cur = {} },
 }
-PitBull4_Shields_combatFrame.bar_db = PitBull4.Options.GetBarLayoutDB(PitBull4_Shields)
 PitBull4_Shields_combatFrame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, ...)
-    if(self.bar_db.just_mine and not(srcGUID == UnitGUID("player"))) then return end
 
    if eventtype == "SPELL_AURA_REFRESH" or
    eventtype == "SPELL_AURA_REMOVED" or eventtype == "SPELL_AURA_APPLIED" then
@@ -62,6 +60,8 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
 --   print(srcName,srcGUID,UnitGUID("player"),spellName,auraType,auraAmount,eventtype)
    if self.shields[spellName] then
       if eventtype == "SPELL_AURA_APPLIED" or eventtype == "SPELL_AURA_REFRESH" then
+          local bar_db = PitBull4.Options.GetBarLayoutDB(PitBull4_Shields)
+          if(bar_db.just_mine and not(srcGUID == UnitGUID("player"))) then return end
           if eventtype == "SPELL_AURA_APPLIED" then
               self.shields[spellName].max[dstGUID] = auraAmount
           end
