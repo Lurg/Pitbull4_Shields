@@ -151,7 +151,7 @@ PitBull4_Shields:SetLayoutOptionsFunction(function(self)
 	    name = L["Only cast by me"],
 	    desc = L["Check this to only show shields that you cast, rather than all shields on the unit"],
 	    get = function(info)
-	        local bar_db = Pitbull4.Options.GetBarLayoutDB(self)
+	        local bar_db = PitBull4.Options.GetBarLayoutDB(self)
 			return bar_db and bar_db.just_mine
 		end,
 		set = function(info, value)
