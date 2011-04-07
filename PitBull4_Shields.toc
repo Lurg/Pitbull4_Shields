@@ -1,8 +1,8 @@
 ## Interface: 40000
 ## Title: PitBull4 |r[|cffeda55fShields|r]
-## Notes: Shows a bar for the estimated remaning Shield strength on a unit
+## Notes: Shows a bar for the estimated remaning shield strength on a unit
 ## Author: Padragon of Kirin Tor
 ## Dependencies: PitBull4
-## Version: 1.0.0
+## Version: 1.0.1
 
 PitBull4_Shields.lua
