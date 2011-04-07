@@ -18,6 +18,7 @@ PitBull4_Shields:SetDefaults({
 	enabled = false,
 	first = true,
 	hide_empty = true,
+	just_mine = false,
 })
 
 local timerFrame = CreateFrame("Frame")
@@ -46,9 +47,10 @@ PitBull4_Shields_combatFrame.shields = {
             ["Shadow Ward"] = { max = {}, cur = {} },
             ["Nether Ward"] = { max = {}, cur = {} },
 }
+PitBull4_Shields_combatFrame.bar_db = PitBull4.Options.GetBarLayoutDB(PitBull4_Shields)
 PitBull4_Shields_combatFrame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestamp, eventtype, srcGUID, srcName, srcFlags, dstGUID, dstName, dstFlags, ...)
---    if(not(srcGUID == UnitGUID("player"))) then return end
+    if(self.bar_db.just_mine and not(srcGUID == UnitGUID("player"))) then return end
 
    if eventtype == "SPELL_AURA_REFRESH" or
    eventtype == "SPELL_AURA_REMOVED" or eventtype == "SPELL_AURA_APPLIED" then
@@ -144,6 +146,23 @@ PitBull4_Shields:SetLayoutOptionsFunction(function(self)
 			end
 			self:UpdateAll()
 		end
+	}, "just_mine", {
+	    type = "toggle",
+	    name = L("Only show my shields"),
+	    desc = L("Check this to only show shields that you cast, rather than all shields on the unit"),
+	    get = function(info)
+	        local bar_db = Pitbull4.Options.GetBarLayoutDB(self)
+			return bar_db and bar_db.just_mine
+		end,
+		set = function(info, value)
+			local bar_db = PitBull4.Options.GetBarLayoutDB(self)
+	        bar_db.just_mine = value
+	        
+	        for frame in PitBull4:IterateFrames() do
+	            self:Clear(frame)
+	        end
+	        self:UpdateAll()
+	    end
 	}
 end)
 
