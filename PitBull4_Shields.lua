@@ -57,10 +57,10 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
       return
    end
 
---   print(srcName,srcGUID,UnitGUID("player"),spellName,auraType,auraAmount,eventtype)
+--   if(srcGUID==UnitGUID("player")) then print(srcName,srcGUID,UnitGUID("player"),spellName,auraType,auraAmount,eventtype) end
    if self.shields[spellName] then
       if eventtype == "SPELL_AURA_APPLIED" or eventtype == "SPELL_AURA_REFRESH" then
-          local bar_db = PitBull4.Options.GetBarLayoutDB(PitBull4_Shields)
+          local bar_db = PitBull4.db.profile.layouts
           if(bar_db.just_mine and not(srcGUID == UnitGUID("player"))) then return end
           if eventtype == "SPELL_AURA_APPLIED" then
               self.shields[spellName].max[dstGUID] = auraAmount
