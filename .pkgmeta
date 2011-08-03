@@ -3,3 +3,4 @@ required-dependencies:
 
 ignore:
 	- README.markdown
+	- .pkgmeta
