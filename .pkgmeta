@@ -1,0 +1,5 @@
+required-dependencies:
+	- pitbull4
+
+ignore:
+	- README.markdown

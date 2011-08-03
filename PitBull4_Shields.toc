@@ -3,6 +3,6 @@
 ## Notes: Shows a bar for the estimated remaning shield strength on a unit
 ## Author: Padragon of Kirin Tor
 ## Dependencies: PitBull4
-## Version: 1.0.4
+## Version: @project-version@
 
 PitBull4_Shields.lua
