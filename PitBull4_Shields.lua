@@ -50,27 +50,51 @@ PitBull4_Shields_combatFrame.shields = {
 PitBull4_Shields_combatFrame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestamp, eventtype, hideCaster, srcGUID, srcName, srcFlags, srcRaidFlags, dstGUID, dstName, dstFlags, dstRaidFlags, ...)
 
+  local spellID, spellName, spellSchool, auraType, auraAmount, environmentalType, miss_type, miss_amount
+
    if eventtype == "SPELL_AURA_REFRESH" or
    eventtype == "SPELL_AURA_REMOVED" or eventtype == "SPELL_AURA_APPLIED" then
       spellID,spellName,spellSchool,auraType,auraAmount = select(1,...)
+
+     if self.shields[spellName] then
+        if eventtype == "SPELL_AURA_APPLIED" or eventtype == "SPELL_AURA_REFRESH" then
+            local bar_db = PitBull4.db.profile.layouts
+            if(bar_db.just_mine and not(srcGUID == UnitGUID("player"))) then return end
+            if eventtype == "SPELL_AURA_APPLIED" then
+                self.shields[spellName].max[dstGUID] = auraAmount
+            end
+            self.shields[spellName].cur[dstGUID] = auraAmount
+        elseif eventtype == "SPELL_AURA_REMOVED" then
+          self.shields[spellName].max[dstGUID] = nil
+          self.shields[spellName].cur[dstGUID] = nil
+       end
+     end
+
    else
-      return
+     if eventtype == "SWING_MISSED" then
+       miss_type,miss_amount = select(1,...)
+     elseif eventtype == "ENVIRONMENTAL_MISSED" then
+       environmentalType,miss_type,miss_amount = select(1,...)
+     elseif eventtype:find('_MISSED') then
+       spellID,spellName,spellSchool,miss_type,miss_amount = select(1,...)
+     else
+       return
+     end
+     -- So if we're here, it was a miss -- check for absorb
+     if miss_type ~= "ABSORB" then return end
+
+     -- Ok, now we need to guess which shield took the damage
+     for shield, shields in pairs(PitBull4_Shields_combatFrame.shields) do
+        if shields.cur[dstGUID] then
+            local absorb_for_this_shield = math.min(miss_amount, shields.cur[dstGUID])
+            miss_amount = miss_amount - absorb_for_this_shield
+            shields.cur[dstGUID] = shields.cur[dstGUID] - absorb_for_this_shield
+            if miss_amount <= 0 then break end
+        end
+     end
    end
 
---   if(srcGUID==UnitGUID("player")) then print(srcName,srcGUID,UnitGUID("player"),spellName,auraType,auraAmount,eventtype) end
-   if self.shields[spellName] then
-      if eventtype == "SPELL_AURA_APPLIED" or eventtype == "SPELL_AURA_REFRESH" then
-          local bar_db = PitBull4.db.profile.layouts
-          if(bar_db.just_mine and not(srcGUID == UnitGUID("player"))) then return end
-          if eventtype == "SPELL_AURA_APPLIED" then
-              self.shields[spellName].max[dstGUID] = auraAmount
-          end
-          self.shields[spellName].cur[dstGUID] = auraAmount
-      elseif eventtype == "SPELL_AURA_REMOVED" then
-        self.shields[spellName].max[dstGUID] = nil
-        self.shields[spellName].cur[dstGUID] = nil
-      end
-   end
+
 end)
 
 
