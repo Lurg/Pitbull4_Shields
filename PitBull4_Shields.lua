@@ -56,7 +56,7 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
    eventtype == "SPELL_AURA_REMOVED" or eventtype == "SPELL_AURA_APPLIED" then
       spellID,spellName,spellSchool,auraType,auraAmount = select(1,...)
 
-     if self.shields[spellName] then
+      if self.shields[spellName] then
         if eventtype == "SPELL_AURA_APPLIED" or eventtype == "SPELL_AURA_REFRESH" then
             local bar_db = PitBull4.db.profile.layouts
             if(bar_db.just_mine and not(srcGUID == UnitGUID("player"))) then return end
@@ -65,9 +65,26 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
             end
             self.shields[spellName].cur[dstGUID] = auraAmount
         elseif eventtype == "SPELL_AURA_REMOVED" then
+          -- Try and correct for discrepancies
+          local delta = auraAmount - self.shields[spellName].cur[dstGUID]
           self.shields[spellName].max[dstGUID] = nil
           self.shields[spellName].cur[dstGUID] = nil
+          if delta > 0 then
+             -- We had over-deducted from this shield.  So now we need to rub down some other random shield
+             for shield, shields in pairs(self.shields) do
+                if shields.cur[dstGUID] then
+                    local absorb_for_this_shield = math.min(delta, shields.cur[dstGUID])
+                    delta = delta - absorb_for_this_shield
+                    shields.cur[dstGUID] = shields.cur[dstGUID] - absorb_for_this_shield
+                    if delta <= 0 then break end
+                end
+             end
+          end
        end
+     else
+        if auraAmount then
+            print("Pitbull4_Shields candidate spell:",spellID,spellName)
+        end
      end
 
    else
@@ -84,7 +101,9 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
      if miss_type ~= "ABSORB" then return end
 
      -- Ok, now we need to guess which shield took the damage
-     for shield, shields in pairs(PitBull4_Shields_combatFrame.shields) do
+     -- We really should make an adjustment on SPELL_AURA_REMOVED if the shield had more left then we thought,
+     -- because then we need to rub a bit more off one of the other shields, or we'll be over-estimating the remaining shielding
+     for shield, shields in pairs(self.shields) do
         if shields.cur[dstGUID] then
             local absorb_for_this_shield = math.min(miss_amount, shields.cur[dstGUID])
             miss_amount = miss_amount - absorb_for_this_shield
