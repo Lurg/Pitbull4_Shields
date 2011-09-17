@@ -10,22 +10,26 @@ Currently it know about these shields:
 
  * Priest
     - Power Word: Shield
-    - Divine Aegis
+    - Divine Aegis (Disc)
  * Death Knight
-    - Blood Shield
+    - Blood Shield (Blood)
+    -  Anti-Magic Shell (behaves a bit weird, amount may be wrong on this one)
  * Paladin
-    - Illuminated Healing
-    - Sacred Shield
+    - Illuminated Healing (Holy)
+    - Sacred Shield (Ret)
+ * Mage
+    - Mage Ward
+    - Ice Barrier (Frost)
 
 It wishes it would know about these, but they don't work the same way in the combat log as the ones above, so getting these working is a TODO:
 
  *  Mage
     -  Mana Shield
-    -  Mage Ward
-    -  Ice Barrier
  *  Warlock
     -  Shadow Ward
     -  Nether Ward
+ *  Death Knight
+    -  Anti-Magic Zone (Unholy)
 
 If you know of other shields people might want to track, let me know and I'll see about adding them.
 
