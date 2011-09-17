@@ -36,6 +36,8 @@ PitBull4_Shields_combatFrame.shields = {
             ["Divine Aegis"] = { max = {}, cur = {} },
             -- DK stuff
             ["Blood Shield"] = { max = {}, cur = {} },
+            ["Anti-Magic Shell"] = { max = {}, cur = {} },
+            ["Anti-Magic Zone"] = { max = {}, cur = {} },
             -- Paladin stuff
             ["Illuminated Healing"] = { max = {}, cur = {} },
             ["Sacred Shield"] = { max = {}, cur = {} },
@@ -56,10 +58,18 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
    eventtype == "SPELL_AURA_REMOVED" or eventtype == "SPELL_AURA_APPLIED" then
       spellID,spellName,spellSchool,auraType,auraAmount = select(1,...)
 
+
       if self.shields[spellName] then
         if eventtype == "SPELL_AURA_APPLIED" or eventtype == "SPELL_AURA_REFRESH" then
             local bar_db = PitBull4.db.profile.layouts
             if(bar_db.just_mine and not(srcGUID == UnitGUID("player"))) then return end
+
+            if(spellName == 'Anti-Magic Shell') then
+                -- AMS gets an auroAmount which is a percentage of the unit's max health
+                -- So we need to find that unit, then multiply
+                auraAmount = (auraAmount/100) * UnitHealthMax(dstName)
+            end
+
             if eventtype == "SPELL_AURA_APPLIED" then
                 self.shields[spellName].max[dstGUID] = auraAmount
             end
