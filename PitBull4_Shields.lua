@@ -80,6 +80,16 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
                     if delta <= 0 then break end
                 end
              end
+          elseif delta < 0 then
+            -- We had under-deducted from this shield.  Which means we over-deducted somewhere else, so we need to top up a bit
+            for shield, shields in pairs(self.shields) do
+                if shields.cur[dstGUID] then
+                    local topup_for_this_shield = math.max( delta, shields.cur[dstGUID] - shields.max[dstGUID] ) -- remember delta is negative
+                    delta = delta - topup_for_this_shield
+                    shields.cur[dstGUID] = shields.cur[dstGUID] - topup_for_this_shield
+                    if delta >= 0 then break end
+                end
+            end
           end
        end
      else
