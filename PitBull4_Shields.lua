@@ -77,7 +77,7 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
         elseif eventtype == "SPELL_AURA_REMOVED" then
           -- Try and correct for discrepancies
           local delta = 0
-          if auraAmount then delta = auraAmount - (self.shields[spellName].cur[dstGUID] or 0) else print("Spell with nil auraAmount on REMOVE was:",spellID,spellName) end
+          if auraAmount then delta = auraAmount - (self.shields[spellName].cur[dstGUID] or 0) end
           self.shields[spellName].max[dstGUID] = nil
           self.shields[spellName].cur[dstGUID] = nil
           if delta > 0 then
@@ -104,7 +104,7 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
        end
      else
         if auraAmount then
-            print("Pitbull4_Shields candidate spell:",spellID,spellName,auraType)
+            print("Pitbull4_Shields candidate spell:",spellID,spellName,auraType,auraAmount)
         end
      end
 
