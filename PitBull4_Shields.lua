@@ -48,6 +48,8 @@ PitBull4_Shields_combatFrame.shields = {
             -- Warlock
             ["Shadow Ward"] = { max = {}, cur = {} },
             ["Nether Ward"] = { max = {}, cur = {} },
+            -- Druid
+            ["Savage Defense"] = { max = {}, cur = {} },
 }
 PitBull4_Shields_combatFrame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestamp, eventtype, hideCaster, srcGUID, srcName, srcFlags, srcRaidFlags, dstGUID, dstName, dstFlags, dstRaidFlags, ...)

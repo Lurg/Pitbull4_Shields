@@ -20,6 +20,8 @@ Currently it know about these shields:
  * Mage
     - Mage Ward
     - Ice Barrier (Frost)
+ * Druid
+    - Savage Defense (Bear)
 
 It wishes it would know about these, but they don't work the same way in the combat log as the ones above, so getting these working is a TODO:
 
