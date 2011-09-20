@@ -27,7 +27,6 @@ timerFrame:SetScript("OnUpdate", function()
 	PitBull4_Shields:UpdateAll()
 end)
 
-
 PitBull4_Shields_combatFrame = CreateFrame("Frame")
 PitBull4_Shields_combatFrame:Hide()
 PitBull4_Shields_combatFrame.shields = {
