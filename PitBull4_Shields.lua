@@ -40,6 +40,7 @@ PitBull4_Shields_combatFrame.shields = {
             -- Paladin stuff
             ["Illuminated Healing"] = { max = {}, cur = {} },
             ["Sacred Shield"] = { max = {}, cur = {} },
+            ["Guarded by the Light"] = { max = {}, cur = {} },
             -- Mage
             ["Mana Shield"] = { max = {}, cur = {} },
             ["Mage Ward"] = { max = {}, cur = {} },
