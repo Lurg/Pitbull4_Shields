@@ -17,6 +17,7 @@ Currently it know about these shields:
  * Paladin
     - Illuminated Healing (Holy)
     - Sacred Shield (Ret)
+	- Guarded by the Light (Prot)
  * Mage
     - Mage Ward
     - Ice Barrier (Frost)
@@ -32,6 +33,8 @@ It wishes it would know about these, but they don't work the same way in the com
     -  Nether Ward
  *  Death Knight
     -  Anti-Magic Zone (Unholy)
+
+Also, Necrotic Strike (DK) looks like it might be trackable in a reverse way to the shields above.  Getting this done is also a TODO.
 
 If you know of other shields people might want to track, let me know and I'll see about adding them.
 
