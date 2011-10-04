@@ -73,10 +73,8 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
                 auraAmount = (auraAmount/100) * UnitHealthMax(dstName)
             end
 
-            if eventtype == "SPELL_AURA_APPLIED" then
-                self.shields[spellName].max[dstGUID] = auraAmount
-            end
-            self.shields[spellName].cur[dstGUID] = auraAmount
+            self.shields[spellID].max[dstGUID] = math.max(self.shields[spellID].max[dstGUID] or 0,auraAmount)
+            self.shields[spellID].cur[dstGUID] = auraAmount
         elseif eventtype == "SPELL_AURA_REMOVED" then
           -- Try and correct for discrepancies
           local delta = 0
