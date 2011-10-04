@@ -31,25 +31,26 @@ PitBull4_Shields_combatFrame = CreateFrame("Frame")
 PitBull4_Shields_combatFrame:Hide()
 PitBull4_Shields_combatFrame.shields = {
             -- Priest stuff
-            ["Power Word: Shield"] = { max = {}, cur = {} },
-            ["Divine Aegis"] = { max = {}, cur = {} },
+            [17] = { max = {}, cur = {} }, -- Power Word: Shield
+            [47753] = { max = {}, cur = {} }, -- Divine Aegis
             -- DK stuff
-            ["Blood Shield"] = { max = {}, cur = {} },
-            ["Anti-Magic Shell"] = { max = {}, cur = {} },
-            ["Anti-Magic Zone"] = { max = {}, cur = {} },
+            [77535] = { max = {}, cur = {} }, -- Blood Shield
+            [48707] = { max = {}, cur = {} }, -- Anti-Magic Shell
+--            ["Anti-Magic Zone"] = { max = {}, cur = {} }, -- 51052?
+            [73975] = { max = {}, cur = {} }, -- Necrotic Strike
             -- Paladin stuff
-            ["Illuminated Healing"] = { max = {}, cur = {} },
-            ["Sacred Shield"] = { max = {}, cur = {} },
-            ["Guarded by the Light"] = { max = {}, cur = {} },
+            [86273] = { max = {}, cur = {} }, -- Illuminated Healing
+            [96263] = { max = {}, cur = {} }, -- Sacred Shield
+            [88063] = { max = {}, cur = {} }, -- Guarded by the Light
             -- Mage
-            ["Mana Shield"] = { max = {}, cur = {} },
-            ["Mage Ward"] = { max = {}, cur = {} },
-            ["Ice Barrier"] = { max = {}, cur = {} },
+            [1463] = { max = {}, cur = {} }, -- Mana Shield
+            [543] = { max = {}, cur = {} }, -- Mage Ward
+            [11426] = { max = {}, cur = {} }, -- Ice Barrier
             -- Warlock
-            ["Shadow Ward"] = { max = {}, cur = {} },
-            ["Nether Ward"] = { max = {}, cur = {} },
+            [6229] = { max = {}, cur = {} }, -- Shadow Ward
+--            ["Nether Ward"] = { max = {}, cur = {} }, -- 91711?
             -- Druid
-            ["Savage Defense"] = { max = {}, cur = {} },
+            [62606] = { max = {}, cur = {} }, -- Savage Defense
 }
 PitBull4_Shields_combatFrame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestamp, eventtype, hideCaster, srcGUID, srcName, srcFlags, srcRaidFlags, dstGUID, dstName, dstFlags, dstRaidFlags, ...)
@@ -61,12 +62,12 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
       spellID,spellName,spellSchool,auraType,auraAmount = select(1,...)
 
 
-      if self.shields[spellName] then
+      if self.shields[spellID] then
         if eventtype == "SPELL_AURA_APPLIED" or eventtype == "SPELL_AURA_REFRESH" then
             local bar_db = PitBull4.db.profile.layouts
             if(bar_db.just_mine and not(srcGUID == UnitGUID("player"))) then return end
 
-            if(spellName == 'Anti-Magic Shell') then
+            if(spellID == 48707) then -- Anti-Magic Shell
                 -- AMS gets an auroAmount which is a percentage of the unit's max health
                 -- So we need to find that unit, then multiply
                 auraAmount = (auraAmount/100) * UnitHealthMax(dstName)
@@ -79,9 +80,9 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
         elseif eventtype == "SPELL_AURA_REMOVED" then
           -- Try and correct for discrepancies
           local delta = 0
-          if auraAmount then delta = auraAmount - (self.shields[spellName].cur[dstGUID] or 0) end
-          self.shields[spellName].max[dstGUID] = nil
-          self.shields[spellName].cur[dstGUID] = nil
+          if auraAmount then delta = auraAmount - (self.shields[spellID].cur[dstGUID] or 0) end
+          self.shields[spellID].max[dstGUID] = nil
+          self.shields[spellID].cur[dstGUID] = nil
           if delta > 0 then
              -- We had over-deducted from this shield.  So now we need to rub down some other random shield
              for shield, shields in pairs(self.shields) do
