@@ -1,4 +1,4 @@
-## Interface: 40200
+## Interface: 40300
 ## Title: PitBull4 |r[|cffeda55fShields|r]
 ## Notes: Shows a bar for the estimated remaning shield strength on a unit
 ## Author: Padragon of Kirin Tor

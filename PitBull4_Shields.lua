@@ -46,6 +46,7 @@ PitBull4_Shields_combatFrame.shields = {
             [1463] = { max = {}, cur = {} }, -- Mana Shield
             [543] = { max = {}, cur = {} }, -- Mage Ward
             [11426] = { max = {}, cur = {} }, -- Ice Barrier
+            [98864] = { max = {}, cur = {} }, -- Ice Barrier
             -- Warlock
             [6229] = { max = {}, cur = {} }, -- Shadow Ward
 --            ["Nether Ward"] = { max = {}, cur = {} }, -- 91711?
@@ -64,13 +65,15 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
 
       if self.shields[spellID] then
         if eventtype == "SPELL_AURA_APPLIED" or eventtype == "SPELL_AURA_REFRESH" then
-            local bar_db = PitBull4.db.profile.layouts
-            if(bar_db.just_mine and not(srcGUID == UnitGUID("player"))) then return end
+--            local db = PitBull4_Shields:GetLayoutDB(self)
+--            if(db.just_mine and not(srcGUID == UnitGUID("player"))) then return end
 
             if(spellID == 48707) then -- Anti-Magic Shell
                 -- AMS gets an auroAmount which is a percentage of the unit's max health
                 -- So we need to find that unit, then multiply
                 auraAmount = (auraAmount/100) * UnitHealthMax(dstName)
+            elseif(spellID == 73975) then -- Necrotic Strike
+                auraAmount = select(6,...)
             end
 
             self.shields[spellID].max[dstGUID] = math.max(self.shields[spellID].max[dstGUID] or 0,auraAmount or 0)
@@ -102,10 +105,13 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
                 end
             end
           end
-       end
+        elseif eventtype == "SPELL_STOLEN" or eventtype == "SPELL_DISPEL" then
+            -- Need to deal with these
+            print(eventtype,":",spellID,spellName,...)
+        end
      else
         if auraAmount then
-            print("Pitbull4_Shields candidate spell:",spellID,spellName,auraType,auraAmount)
+            print("Pitbull4_Shields candidate spell (",eventtype,"):",spellID,spellName,auraType,auraAmount)
         end
      end
 
