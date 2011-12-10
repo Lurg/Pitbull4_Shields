@@ -135,10 +135,10 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
      -- because then we need to rub a bit more off one of the other shields, or we'll be over-estimating the remaining shielding
      for shield, shields in pairs(self.shields) do
         if shields.cur[dstGUID] then
-            local absorb_for_this_shield = math.min(miss_amount, shields.cur[dstGUID])
-            miss_amount = miss_amount - absorb_for_this_shield
+            local absorb_for_this_shield = math.min(miss_amount or 0, shields.cur[dstGUID])
+            miss_amount = (miss_amount or 0) - absorb_for_this_shield
             shields.cur[dstGUID] = shields.cur[dstGUID] - absorb_for_this_shield
-            if miss_amount <= 0 then break end
+            if (miss_amount or 0) <= 0 then break end
         end
      end
    end
