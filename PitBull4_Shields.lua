@@ -42,6 +42,7 @@ PitBull4_Shields_combatFrame.shields = {
             [86273] = { max = {}, cur = {} }, -- Illuminated Healing
             [96263] = { max = {}, cur = {} }, -- Sacred Shield
             [88063] = { max = {}, cur = {} }, -- Guarded by the Light
+            [105801] = { max = {}, cur = {} }, -- Delayed Judgement
             -- Mage
             [1463] = { max = {}, cur = {} }, -- Mana Shield
             [543] = { max = {}, cur = {} }, -- Mage Ward
