@@ -57,6 +57,8 @@ PitBull4_Shields_combatFrame.shields = {
             [53476] = { max = {}, cur = {} }, -- Intervene
             -- Warrior
             [105909] = { max = {}, cur = {} }, -- T13 prot 2-piece bonus
+            -- Trinket
+            [108008] = { max = {}, cur = {} }, -- Indomitable Pride
 }
 PitBull4_Shields_combatFrame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestamp, eventtype, hideCaster, srcGUID, srcName, srcFlags, srcRaidFlags, dstGUID, dstName, dstFlags, dstRaidFlags, ...)
