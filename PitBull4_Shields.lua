@@ -123,12 +123,13 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
      end
 
    else
+
      if eventtype == "SWING_MISSED" then
-       miss_type,miss_amount = select(1,...)
+       miss_type,_,miss_amount = select(1,...)
      elseif eventtype == "ENVIRONMENTAL_MISSED" then
-       environmentalType,miss_type,miss_amount = select(1,...)
+       environmentalType,miss_type,_,miss_amount = select(1,...)
      elseif eventtype:find('_MISSED') then
-       spellID,spellName,spellSchool,miss_type,miss_amount = select(1,...)
+       spellID,spellName,spellSchool,miss_type,_,miss_amount = select(1,...)
      else
        return
      end
@@ -164,7 +165,7 @@ end
 
 function PitBull4_Shields:OnNewLayout(layout)
 	local layout_db = self.db.profile.layouts[layout]
-	
+
 	if layout_db.first then
 		layout_db.first = false
 		local default_bar = layout_db.elements[L["Default"]]
@@ -204,8 +205,8 @@ end
 function PitBull4_Shields:GetColor(frame, bar_db, value)
 	return 1, 1, 1
 end
- 
- 
+
+
 PitBull4_Shields:SetLayoutOptionsFunction(function(self)
 	return "hide_empty", {
 		type = "toggle",
@@ -218,7 +219,7 @@ PitBull4_Shields:SetLayoutOptionsFunction(function(self)
 		set = function(info, value)
 			local bar_db = PitBull4.Options.GetBarLayoutDB(self)
 			bar_db.hide = value
-			
+
 			for frame in PitBull4:IterateFrames() do
 				self:Clear(frame)
 			end
@@ -235,7 +236,7 @@ PitBull4_Shields:SetLayoutOptionsFunction(function(self)
 		set = function(info, value)
 			local bar_db = PitBull4.Options.GetBarLayoutDB(self)
 	        bar_db.just_mine = value
-	        
+
 	        for frame in PitBull4:IterateFrames() do
 	            self:Clear(frame)
 	        end
