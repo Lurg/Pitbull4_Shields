@@ -49,8 +49,8 @@ PitBull4_Shields_combatFrame.shields = {
             [11426] = { max = {}, cur = {} }, -- Ice Barrier
             [98864] = { max = {}, cur = {} }, -- Ice Barrier
             -- Warlock
-            [6229] = { max = {}, cur = {} }, -- Shadow Ward
---            ["Nether Ward"] = { max = {}, cur = {} }, -- 91711?
+            [6229] = { max = {}, cur = {} }, -- Twilight Ward
+            [108416] = { max = {}, cur = {} }, -- Sacrificial Pact
             -- Druid
             [62606] = { max = {}, cur = {} }, -- Savage Defense
             -- Hunter pet
