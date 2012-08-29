@@ -39,8 +39,8 @@ PitBull4_Shields_combatFrame.shields = {
 --            ["Anti-Magic Zone"] = { max = {}, cur = {} }, -- 51052?
             [73975] = { max = {}, cur = {} }, -- Necrotic Strike
             -- Paladin stuff
+            [65148] = { max = {}, cur = {} }, -- Sacred Shield
             [86273] = { max = {}, cur = {} }, -- Illuminated Healing
-            [96263] = { max = {}, cur = {} }, -- Sacred Shield
             [88063] = { max = {}, cur = {} }, -- Guarded by the Light
             [105801] = { max = {}, cur = {} }, -- Delayed Judgement
             -- Mage
