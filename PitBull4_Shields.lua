@@ -57,6 +57,8 @@ PitBull4_Shields_combatFrame.shields = {
             [53476] = { max = {}, cur = {} }, -- Intervene
             -- Warrior
             [105909] = { max = {}, cur = {} }, -- T13 prot 2-piece bonus
+            -- Shaman
+            [114893] = { max = {}, cur = {} }, -- Stone Bulwark
             -- Trinket
             [108008] = { max = {}, cur = {} }, -- Indomitable Pride
 }
