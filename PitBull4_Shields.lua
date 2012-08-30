@@ -66,6 +66,7 @@ PitBull4_Shields_combatFrame.shields = {
             -- Warlock
             [6229] = { max = {}, cur = {} }, -- Twilight Ward
             [108416] = { max = {}, cur = {} }, -- Sacrificial Pact
+            [110913] = { max = {}, cur = {} }, -- Dark Bargain
 
             -- Warrior
             [105909] = { max = {}, cur = {} }, -- T13 prot 2-piece bonus
