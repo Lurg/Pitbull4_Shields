@@ -32,6 +32,7 @@ PitBull4_Shields_combatFrame:Hide()
 PitBull4_Shields_combatFrame.shields = {
             -- Priest stuff
             [17] = { max = {}, cur = {} }, -- Power Word: Shield
+            [123258] = { max = {}, cur = {} }, -- Power Word: Shield alternative?
             [47753] = { max = {}, cur = {} }, -- Divine Aegis
             -- DK stuff
             [77535] = { max = {}, cur = {} }, -- Blood Shield
