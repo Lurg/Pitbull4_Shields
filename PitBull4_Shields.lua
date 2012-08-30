@@ -30,35 +30,47 @@ end)
 PitBull4_Shields_combatFrame = CreateFrame("Frame")
 PitBull4_Shields_combatFrame:Hide()
 PitBull4_Shields_combatFrame.shields = {
-            -- Priest stuff
-            [17] = { max = {}, cur = {} }, -- Power Word: Shield
-            [47753] = { max = {}, cur = {} }, -- Divine Aegis
+
             -- DK stuff
-            [77535] = { max = {}, cur = {} }, -- Blood Shield
             [48707] = { max = {}, cur = {} }, -- Anti-Magic Shell
---            ["Anti-Magic Zone"] = { max = {}, cur = {} }, -- 51052?
             [73975] = { max = {}, cur = {} }, -- Necrotic Strike
+            [77535] = { max = {}, cur = {} }, -- Blood Shield
+
+            -- Druid
+            [62606] = { max = {}, cur = {} }, -- Savage Defense
+
+            -- Hunter pet
+            [53476] = { max = {}, cur = {} }, -- Intervene
+
+            -- Mage
+            [543] = { max = {}, cur = {} }, -- Mage Ward
+            [1463] = { max = {}, cur = {} }, -- Mana Shield
+            [11426] = { max = {}, cur = {} }, -- Ice Barrier
+            [98864] = { max = {}, cur = {} }, -- Ice Barrier
+
             -- Paladin stuff
             [65148] = { max = {}, cur = {} }, -- Sacred Shield
             [86273] = { max = {}, cur = {} }, -- Illuminated Healing
             [88063] = { max = {}, cur = {} }, -- Guarded by the Light
             [105801] = { max = {}, cur = {} }, -- Delayed Judgement
-            -- Mage
-            [1463] = { max = {}, cur = {} }, -- Mana Shield
-            [543] = { max = {}, cur = {} }, -- Mage Ward
-            [11426] = { max = {}, cur = {} }, -- Ice Barrier
-            [98864] = { max = {}, cur = {} }, -- Ice Barrier
+
+            -- Priest stuff
+            [17] = { max = {}, cur = {} }, -- Power Word: Shield
+            [47753] = { max = {}, cur = {} }, -- Divine Aegis
+            [114908] = { max = {}, cur = {} }, -- Spirit Shell
+            [123258] = { max = {}, cur = {} }, -- Power Word: Shield alternative?
+
+            -- Shaman
+            [114893] = { max = {}, cur = {} }, -- Stone Bulwark
+
             -- Warlock
             [6229] = { max = {}, cur = {} }, -- Twilight Ward
             [108416] = { max = {}, cur = {} }, -- Sacrificial Pact
-            -- Druid
-            [62606] = { max = {}, cur = {} }, -- Savage Defense
-            -- Hunter pet
-            [53476] = { max = {}, cur = {} }, -- Intervene
+            [110913] = { max = {}, cur = {} }, -- Dark Bargain
+
             -- Warrior
             [105909] = { max = {}, cur = {} }, -- T13 prot 2-piece bonus
-            -- Shaman
-            [114893] = { max = {}, cur = {} }, -- Stone Bulwark
+
             -- Trinket
             [108008] = { max = {}, cur = {} }, -- Indomitable Pride
 }
