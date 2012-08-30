@@ -32,9 +32,9 @@ PitBull4_Shields_combatFrame:Hide()
 PitBull4_Shields_combatFrame.shields = {
 
             -- DK stuff
-            [77535] = { max = {}, cur = {} }, -- Blood Shield
             [48707] = { max = {}, cur = {} }, -- Anti-Magic Shell
             [73975] = { max = {}, cur = {} }, -- Necrotic Strike
+            [77535] = { max = {}, cur = {} }, -- Blood Shield
 
             -- Druid
             [62606] = { max = {}, cur = {} }, -- Savage Defense
@@ -43,8 +43,8 @@ PitBull4_Shields_combatFrame.shields = {
             [53476] = { max = {}, cur = {} }, -- Intervene
 
             -- Mage
-            [1463] = { max = {}, cur = {} }, -- Mana Shield
             [543] = { max = {}, cur = {} }, -- Mage Ward
+            [1463] = { max = {}, cur = {} }, -- Mana Shield
             [11426] = { max = {}, cur = {} }, -- Ice Barrier
             [98864] = { max = {}, cur = {} }, -- Ice Barrier
 
@@ -53,12 +53,12 @@ PitBull4_Shields_combatFrame.shields = {
             [86273] = { max = {}, cur = {} }, -- Illuminated Healing
             [88063] = { max = {}, cur = {} }, -- Guarded by the Light
             [105801] = { max = {}, cur = {} }, -- Delayed Judgement
-            [114908] = { max = {}, cur = {} }, -- Spirit Shell
 
             -- Priest stuff
             [17] = { max = {}, cur = {} }, -- Power Word: Shield
-            [123258] = { max = {}, cur = {} }, -- Power Word: Shield alternative?
             [47753] = { max = {}, cur = {} }, -- Divine Aegis
+            [114908] = { max = {}, cur = {} }, -- Spirit Shell
+            [123258] = { max = {}, cur = {} }, -- Power Word: Shield alternative?
 
             -- Shaman
             [114893] = { max = {}, cur = {} }, -- Stone Bulwark
