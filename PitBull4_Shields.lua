@@ -37,13 +37,13 @@ PitBull4_Shields_combatFrame.shields = {
             -- DK stuff
             [77535] = { max = {}, cur = {} }, -- Blood Shield
             [48707] = { max = {}, cur = {} }, -- Anti-Magic Shell
---            ["Anti-Magic Zone"] = { max = {}, cur = {} }, -- 51052?
             [73975] = { max = {}, cur = {} }, -- Necrotic Strike
             -- Paladin stuff
             [65148] = { max = {}, cur = {} }, -- Sacred Shield
             [86273] = { max = {}, cur = {} }, -- Illuminated Healing
             [88063] = { max = {}, cur = {} }, -- Guarded by the Light
             [105801] = { max = {}, cur = {} }, -- Delayed Judgement
+            [114908] = { max = {}, cur = {} }, -- Spirit Shell
             -- Mage
             [1463] = { max = {}, cur = {} }, -- Mana Shield
             [543] = { max = {}, cur = {} }, -- Mage Ward
