@@ -36,6 +36,7 @@ PitBull4_Shields_combatFrame.shields = {
             [73975] = { max = {}, cur = {} }, -- Necrotic Strike
             [77535] = { max = {}, cur = {} }, -- Blood Shield
             [115635] = { max = {}, cur = {} }, -- Death Barrier
+            [116888] = { max = {}, cur = {} }, -- Shroud of Purgatory
 
             -- Druid
             [62606] = { max = {}, cur = {} }, -- Savage Defense
