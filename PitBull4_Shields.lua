@@ -35,6 +35,7 @@ PitBull4_Shields_combatFrame.shields = {
             [48707] = { max = {}, cur = {} }, -- Anti-Magic Shell
             [73975] = { max = {}, cur = {} }, -- Necrotic Strike
             [77535] = { max = {}, cur = {} }, -- Blood Shield
+            [115635] = { max = {}, cur = {} }, -- Death Barrier
 
             -- Druid
             [62606] = { max = {}, cur = {} }, -- Savage Defense
