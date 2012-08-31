@@ -72,6 +72,7 @@ PitBull4_Shields_combatFrame.shields = {
 
             -- Warrior
             [105909] = { max = {}, cur = {} }, -- T13 prot 2-piece bonus
+            [112048] = { max = {}, cur = {} }, -- Shield Barrier
 
             -- Trinket
             [108008] = { max = {}, cur = {} }, -- Indomitable Pride
