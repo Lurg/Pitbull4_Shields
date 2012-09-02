@@ -17,7 +17,7 @@ Currently it know about these shields:
     - [Death Barrier](http://wowhead.com/spell=115635) (friend shield from Death Coil)
     - [Shroud of Purgatory](http://wowhead.com/spell=116888)
  * Druid
-    - [Savage Defense](http://wowhead.com/spell=62606)
+    - Sorry, they took all Druid shields away!
  * Hunter
     - [Pet intervene](http://wowhead.com/spell=53476)
  * Mage

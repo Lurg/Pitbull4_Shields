@@ -38,9 +38,6 @@ PitBull4_Shields_combatFrame.shields = {
             [115635] = { max = {}, cur = {} }, -- Death Barrier
             [116888] = { max = {}, cur = {} }, -- Shroud of Purgatory
 
-            -- Druid
-            [62606] = { max = {}, cur = {} }, -- Savage Defense
-
             -- Hunter pet
             [53476] = { max = {}, cur = {} }, -- Intervene
 
