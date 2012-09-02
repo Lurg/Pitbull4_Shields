@@ -1,4 +1,3 @@
-<script type="text/javascript" src="http://static.wowhead.com/widgets/power.js"></script>
 Shields Module for Pitbull4
 ===========================
 
@@ -8,6 +7,8 @@ Overview
 This module allows you to add a bar to your Pitbull4 frames, where the extra bar will show you the remaing amount (not remaining time) of any shield(s) on that target.  You can also use a Lua text to read the values and overlay those as a text element wherever you might want.  I'll show you the code that below.  It's not automatically integrated to export to just show up magically in Pitbull's list yet, though that's a TODO.
 
 Currently it know about these shields:
+
+<script type="text/javascript" src="http://static.wowhead.com/widgets/power.js"></script>
 
  * Death Knight
     - [Anti-Magic Shell](http://wowhead.com/spell=48707)
