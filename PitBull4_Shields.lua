@@ -46,7 +46,6 @@ PitBull4_Shields_combatFrame.shields = {
 
             -- Mage
             [543] = { max = {}, cur = {} }, -- Mage Ward
-            [1463] = { max = {}, cur = {} }, -- Mana Shield
             [11426] = { max = {}, cur = {} }, -- Ice Barrier
             [98864] = { max = {}, cur = {} }, -- Ice Barrier
 
@@ -66,6 +65,7 @@ PitBull4_Shields_combatFrame.shields = {
             [114893] = { max = {}, cur = {} }, -- Stone Bulwark
 
             -- Warlock
+            [1454] = { max = {}, cur = {} }, -- Life Tap (debuff)
             [6229] = { max = {}, cur = {} }, -- Twilight Ward
             [108416] = { max = {}, cur = {} }, -- Sacrificial Pact
             [110913] = { max = {}, cur = {} }, -- Dark Bargain
