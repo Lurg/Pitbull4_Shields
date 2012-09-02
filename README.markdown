@@ -1,3 +1,4 @@
+<script type="text/javascript" src="http://static.wowhead.com/widgets/power.js"></script>
 Shields Module for Pitbull4
 ===========================
 
@@ -8,38 +9,45 @@ This module allows you to add a bar to your Pitbull4 frames, where the extra bar
 
 Currently it know about these shields:
 
- * Priest
-    - Power Word: Shield
-    - Divine Aegis (Disc)
  * Death Knight
-    - Blood Shield (Blood)
-    -  Anti-Magic Shell (behaves a bit weird, amount may be wrong on this one)
- * Paladin
-    - Illuminated Healing (Holy)
-    - Sacred Shield (Ret)
-	- Guarded by the Light (Prot)
- * Mage
-    - Mage Ward
-    - Ice Barrier (Frost)
+    - [Anti-Magic Shell](http://wowhead.com/spell=48707)
+    - [Necrotic Strike](http://wowhead.com/spell=73975) (healing debuff)
+    - [Blood Shield](http://wowhead.com/spell=77535)
+    - [Death Barrier](http://wowhead.com/spell=115635) (friend shield from Death Coil)
+    - [Shroud of Purgatory](http://wowhead.com/spell=116888)
  * Druid
-    - Savage Defense (Bear)
+    - [Savage Defense](http://wowhead.com/spell=62606)
+ * Hunter
+    - [Pet intervene](http://wowhead.com/spell=53476)
+ * Mage
+    - [Incanter's Ward](http://wowhead.com/spell=543)
+    - [Ice Barrier](http://wowhead.com/spell=11426)
+ * Paladin
+    - [Sacred Shield](http://wowhead.com/spell=65148)
+    - [Illuminated Healing](http://wowhead.com/spell=86273)
+    - [Guarded by the Light](http://wowhead.com/spell=88063)
+    - [Delayed Judgement](http://wowhead.com/spell=105801)
+ * Priest
+    - [Power Word: Shield](http://wowhead.com/spell=17) ([also](http://wowhead.com/spell=123258) with [Divine Insight](http://www.wowhead.com/spell=109175))
+    - [Divine Aegis](http://wowhead.com/spell=47753)
+    - [Spirit Shell](http://wowhead.com/spell=114908)
+ * Shaman
+    - [Stone Bulwark](http://wowhead.com/spell=114893)
+ * Warlock
+    - [Life Tap](http://wowhead.com/spell=1454) (with [Glyph of Life Tap](http://www.wowhead.com/item=45785), healing debuff)
+    - [Twilight Ward](http://wowhead.com/spell=6229)
+    - [Sacrificial Bargain](http://wowhead.com/spell=108416)
+    - [Dark Bargain](http://wowhead.com/spell=110913)
+ * Warrior
+    - [Shield of Fury](http://wowhead.com/spell=105909) (from [T-13 2-pc prot bonus](http://www.wowhead.com/spell=105908))
+    - [Shield Barrier](http://wowhead.com/spell=112048)
+ * Trinket and other object
+    - [Indomitable Pride](http://wowhead.com/spell=108008)
 
-It wishes it would know about these, but they don't work the same way in the combat log as the ones above, so getting these working is a TODO:
 
- *  Mage
-    -  Mana Shield
- *  Warlock
-    -  Shadow Ward
-    -  Nether Ward
- *  Death Knight
-    -  Anti-Magic Zone (Unholy)
-
-Also, Necrotic Strike (DK) looks like it might be trackable in a reverse way to the shields above.  Getting this done is also a TODO.
-
-If you know of other shields people might want to track, let me know and I'll see about adding them.
+If you know of other shields people might want to track, let me know and I'll see about adding them.  There's code in the addon which will print a message to the console when it detects a new kind of shield that it might be able to track.
 
 It will show those shields on any unit frame the bar's enabled for, whether they're the unit that cast the shield or not.  The idea is if you're a Disc priest, you can shield your tank and know how much damage is left on that shield before you need to refresh it.
-
 
 
 Configuration
