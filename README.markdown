@@ -31,6 +31,7 @@ Currently it know about these shields:
  * Priest
     - [Power Word: Shield](http://wowhead.com/spell=17) ([also](http://wowhead.com/spell=123258) with [Divine Insight](http://www.wowhead.com/spell=109175))
     - [Divine Aegis](http://wowhead.com/spell=47753)
+    - [Angelic Bulwark](http://wowhead.com/spell=114214)
     - [Spirit Shell](http://wowhead.com/spell=114908)
  * Shaman
     - [Stone Bulwark](http://wowhead.com/spell=114893)

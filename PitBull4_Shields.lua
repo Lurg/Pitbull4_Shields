@@ -55,6 +55,7 @@ PitBull4_Shields_combatFrame.shields = {
             -- Priest stuff
             [17] = { max = {}, cur = {} }, -- Power Word: Shield
             [47753] = { max = {}, cur = {} }, -- Divine Aegis
+            [114214] = { max = {}, cur = {} }, -- Angelic Bulwark
             [114908] = { max = {}, cur = {} }, -- Spirit Shell
             [123258] = { max = {}, cur = {} }, -- Power Word: Shield alternative?
 
