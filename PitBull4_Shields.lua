@@ -140,10 +140,13 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
    else
 
      if eventtype == "SWING_MISSED" then
+       local _
        miss_type,_,miss_amount = select(1,...)
      elseif eventtype == "ENVIRONMENTAL_MISSED" then
+       local _
        environmentalType,miss_type,_,miss_amount = select(1,...)
      elseif eventtype:find('_MISSED') then
+       local _
        spellID,spellName,spellSchool,miss_type,_,miss_amount = select(1,...)
      else
        return
