@@ -90,11 +90,7 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
 --            local db = PitBull4_Shields:GetLayoutDB(self)
 --            if(db.just_mine and not(srcGUID == UnitGUID("player"))) then return end
 
-            if(spellID == 48707) then -- Anti-Magic Shell
-                -- AMS gets an auroAmount which is a percentage of the unit's max health
-                -- So we need to find that unit, then multiply
-                auraAmount = (auraAmount/100) * UnitHealthMax(dstName)
-            elseif(spellID == 73975) then -- Necrotic Strike
+            if(spellID == 73975) then -- Necrotic Strike
                 auraAmount = select(6,...)
             end
 
