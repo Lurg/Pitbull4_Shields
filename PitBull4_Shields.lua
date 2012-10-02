@@ -65,6 +65,7 @@ PitBull4_Shields_combatFrame.shields = {
             -- Warlock
             [1454] = { max = {}, cur = {} }, -- Life Tap (debuff)
             [6229] = { max = {}, cur = {} }, -- Twilight Ward
+            [119839] = { max = {}, cur = {} }, -- Fury Ward (Dark Apotheosis)
             [108416] = { max = {}, cur = {} }, -- Sacrificial Pact
             [110913] = { max = {}, cur = {} }, -- Dark Bargain
 
