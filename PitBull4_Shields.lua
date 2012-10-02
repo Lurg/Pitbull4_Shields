@@ -75,6 +75,9 @@ PitBull4_Shields_combatFrame.shields = {
 
             -- Trinket
             [108008] = { max = {}, cur = {} }, -- Indomitable Pride
+
+            -- Enchant
+            [116631] = { max = {}, cur = {} }, -- Colossus
 }
 PitBull4_Shields_combatFrame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestamp, eventtype, hideCaster, srcGUID, srcName, srcFlags, srcRaidFlags, dstGUID, dstName, dstFlags, dstRaidFlags, ...)
