@@ -21,7 +21,7 @@ Currently it know about these shields:
  * Hunter
     - [Pet intervene](http://wowhead.com/spell=53476)
  * Mage
-    - [Incanter's Ward](http://wowhead.com/spell=543)
+    - [Incanter's Ward](http://wowhead.com/spell=1463)
     - [Ice Barrier](http://wowhead.com/spell=11426)
  * Monk
     - [Guard](http://wowhead.com/spell=118604)

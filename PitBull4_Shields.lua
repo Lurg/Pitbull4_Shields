@@ -43,6 +43,7 @@ PitBull4_Shields_combatFrame.shields = {
 
             -- Mage
             [543] = { max = {}, cur = {} }, -- Mage Ward
+            [1463] = { max = {}, cur = {} }, -- Incanter's Ward
             [11426] = { max = {}, cur = {} }, -- Ice Barrier
             [98864] = { max = {}, cur = {} }, -- Ice Barrier
 
