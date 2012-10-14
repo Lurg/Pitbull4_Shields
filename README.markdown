@@ -23,6 +23,8 @@ Currently it know about these shields:
  * Mage
     - [Incanter's Ward](http://wowhead.com/spell=543)
     - [Ice Barrier](http://wowhead.com/spell=11426)
+ * Monk
+    - [Guard](http://wowhead.com/spell=118604)
  * Paladin
     - [Sacred Shield](http://wowhead.com/spell=65148)
     - [Illuminated Healing](http://wowhead.com/spell=86273)
