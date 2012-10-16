@@ -24,7 +24,7 @@ Currently it know about these shields:
     - [Incanter's Ward](http://wowhead.com/spell=1463)
     - [Ice Barrier](http://wowhead.com/spell=11426)
  * Monk
-    - [Guard](http://wowhead.com/spell=118604)
+    - [Guard](http://wowhead.com/spell=118604) ([also](http://wowhead.com/spell=115295))
  * Paladin
     - [Sacred Shield](http://wowhead.com/spell=65148)
     - [Illuminated Healing](http://wowhead.com/spell=86273)
