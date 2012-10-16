@@ -23,6 +23,8 @@ Currently it know about these shields:
  * Mage
     - [Incanter's Ward](http://wowhead.com/spell=1463)
     - [Ice Barrier](http://wowhead.com/spell=11426)
+ * Monk
+    - [Guard](http://wowhead.com/spell=118604)
  * Paladin
     - [Sacred Shield](http://wowhead.com/spell=65148)
     - [Illuminated Healing](http://wowhead.com/spell=86273)
@@ -45,6 +47,8 @@ Currently it know about these shields:
     - [Shield Barrier](http://wowhead.com/spell=112048)
  * Trinket and other object
     - [Indomitable Pride](http://wowhead.com/spell=108008)
+ * Enchants
+    - [Colossus](http://wowhead.com/spell=116631)
 
 
 If you know of other shields people might want to track, let me know and I'll see about adding them.  There's code in the addon which will print a message to the console when it detects a new kind of shield that it might be able to track.

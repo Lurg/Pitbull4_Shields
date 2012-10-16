@@ -47,6 +47,9 @@ PitBull4_Shields_combatFrame.shields = {
             [11426] = { max = {}, cur = {} }, -- Ice Barrier
             [98864] = { max = {}, cur = {} }, -- Ice Barrier
 
+            -- Monk
+            [118604] = { max = {}, cur = {} }, -- Guard
+
             -- Paladin stuff
             [65148] = { max = {}, cur = {} }, -- Sacred Shield
             [86273] = { max = {}, cur = {} }, -- Illuminated Healing
