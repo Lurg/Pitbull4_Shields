@@ -48,6 +48,7 @@ PitBull4_Shields_combatFrame.shields = {
             [98864] = { max = {}, cur = {} }, -- Ice Barrier
 
             -- Monk
+            [115295] = { max = {}, cur = {} }, -- Guard
             [118604] = { max = {}, cur = {} }, -- Guard
 
             -- Paladin stuff
