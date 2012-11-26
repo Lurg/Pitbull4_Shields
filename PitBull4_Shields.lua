@@ -49,6 +49,7 @@ PitBull4_Shields_combatFrame.shields = {
 
             -- Monk
             [115295] = { max = {}, cur = {} }, -- Guard
+            [116849] = { max = {}, cur = {} }, -- Life Cocoon
             [118604] = { max = {}, cur = {} }, -- Guard
 
             -- Paladin stuff
