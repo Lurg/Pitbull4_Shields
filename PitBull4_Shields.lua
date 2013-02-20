@@ -51,6 +51,7 @@ PitBull4_Shields_combatFrame.shields = {
             [115295] = { max = {}, cur = {} }, -- Guard
             [116849] = { max = {}, cur = {} }, -- Life Cocoon
             [118604] = { max = {}, cur = {} }, -- Guard
+            [136070] = { max = {}, cur = {} }, -- Guard (tier 14 4-pc)
 
             -- Paladin stuff
             [65148] = { max = {}, cur = {} }, -- Sacred Shield
