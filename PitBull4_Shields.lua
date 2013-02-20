@@ -94,6 +94,8 @@ PitBull4_Shields_combatFrame:SetScript("OnEvent", function(self, event, timestam
    eventtype == "SPELL_AURA_REMOVED" or eventtype == "SPELL_AURA_APPLIED" then
       spellID,spellName,spellSchool,auraType,auraAmount = select(1,...)
 
+       -- Ignore events that do not involve a player
+       if(not(bit.band(srcFlags, COMBATLOG_OBJECT_TYPE_PLAYER) > 0 or bit.band(dstFlags, COMBATLOG_OBJECT_TYPE_PLAYER) > 0)) then return end
 
       if self.shields[spellID] then
         if eventtype == "SPELL_AURA_APPLIED" or eventtype == "SPELL_AURA_REFRESH" then
