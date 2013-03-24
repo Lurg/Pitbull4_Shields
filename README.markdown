@@ -24,7 +24,7 @@ Currently it know about these shields:
     - [Incanter's Ward](http://wowhead.com/spell=1463)
     - [Ice Barrier](http://wowhead.com/spell=11426)
  * Monk
-    - [Guard](http://wowhead.com/spell=118604) ([also](http://wowhead.com/spell=115295)) ([also](http://wowhead.com/spell=136070) with [Tier 14 4-pc](http://www.wowhead.com/spell=123159))
+    - [Guard](http://wowhead.com/spell=118604) ([also](http://wowhead.com/spell=115295), [and this](http://wowhead.com/spell=123402) with [Glyph of Guard](http://wowhead.com/spell=123401) and [also this](http://wowhead.com/spell=136070) with [Tier 14 4-pc](http://www.wowhead.com/spell=123159))
     - [Life Cocoon](http://wowhead.com/spell=116849)
  * Paladin
     - [Sacred Shield](http://wowhead.com/spell=65148)
