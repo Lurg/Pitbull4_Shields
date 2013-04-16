@@ -49,6 +49,7 @@ Currently it know about these shields:
     - [Shield Barrier](http://wowhead.com/spell=112048)
  * Trinket and other object
     - [Indomitable Pride](http://wowhead.com/spell=108008)
+    - [Hydra Sputum](http://wowhead.com/spell=140380)
  * Enchants
     - [Colossus](http://wowhead.com/spell=116631)
 
