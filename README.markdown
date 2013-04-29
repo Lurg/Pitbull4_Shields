@@ -49,6 +49,8 @@ Currently it know about these shields:
     - [Shield Barrier](http://wowhead.com/spell=112048)
  * Trinket and other object
     - [Indomitable Pride](http://wowhead.com/spell=108008)
+    - [Stolen Relic of Zuldazar](http://wowhead.com/spell=138925)
+    - [Soul Barrier](http://wowhead.com/spell=138979)
     - [Hydra Sputum](http://wowhead.com/spell=140380)
  * Enchants
     - [Colossus](http://wowhead.com/spell=116631)
