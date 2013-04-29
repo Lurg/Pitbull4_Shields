@@ -84,6 +84,8 @@ PitBull4_Shields_combatFrame.shields = {
 
             -- Trinket
             [108008] = { max = {}, cur = {} }, -- Indomitable Pride
+            [138925] = { max = {}, cur = {} }, -- Zandalari Warding
+            [138979] = { max = {}, cur = {} }, -- Soul Barrier
             [140380] = { max = {}, cur = {} }, -- Hydra Sputum
 
             -- Enchant
