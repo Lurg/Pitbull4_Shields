@@ -40,7 +40,7 @@ Currently it know about these shields:
     - [Stone Bulwark](http://wowhead.com/spell=114893)
  * Warlock
     - [Life Tap](http://wowhead.com/spell=1454) (with [Glyph of Life Tap](http://www.wowhead.com/item=45785), healing debuff)
-    - [Twilight Ward](http://wowhead.com/spell=6229)
+    - [Twilight Ward](http://wowhead.com/spell=6229) ([also](http://wowhead.com/spell=131623))
     - [Soul Leech](http://wowhead.com/spell=108366)
     - [Sacrificial Bargain](http://wowhead.com/spell=108416)
     - [Dark Bargain](http://wowhead.com/spell=110913)
