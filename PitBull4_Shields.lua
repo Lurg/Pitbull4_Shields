@@ -53,6 +53,7 @@ PitBull4_Shields_combatFrame.shields = {
             [118604] = { max = {}, cur = {} }, -- Guard
             [123402] = { max = {}, cur = {} }, -- Guard with Glyph
             [136070] = { max = {}, cur = {} }, -- Guard (tier 14 4-pc)
+            [145051] = { max = {}, cur = {} }, -- Protection of Niuzao
 
             -- Paladin stuff
             [65148] = { max = {}, cur = {} }, -- Sacred Shield
@@ -69,6 +70,7 @@ PitBull4_Shields_combatFrame.shields = {
 
             -- Shaman
             [114893] = { max = {}, cur = {} }, -- Stone Bulwark
+            [145379] = { max = {}, cur = {} }, -- Nature's Barrier
 
             -- Warlock
             [1454] = { max = {}, cur = {} }, -- Life Tap (debuff)
