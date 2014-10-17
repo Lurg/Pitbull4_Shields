@@ -1,5 +1,3 @@
-if select(6, GetAddOnInfo("PitBull4_" .. (debugstack():match("[o%.][d%.][u%.]les\\(.-)\\") or ""))) ~= "MISSING" then return end
-
 local PitBull4 = _G.PitBull4
 if not PitBull4 then
 	error("PitBull4_Shields requires PitBull4")
@@ -9,11 +7,12 @@ local EXAMPLE_VALUE = 0.3
 
 local L = PitBull4.L
 
-local PitBull4_Shields = PitBull4:NewModule("Shields")
+local PitBull4_Shields = PitBull4:NewModule("Shields", "AceEvent-3.0", "AceHook-3.0")
 
-PitBull4_Shields:SetModuleType("bar_provider")
+PitBull4_Shields:SetModuleType("bar")
 PitBull4_Shields:SetName(L["Shields"])
 PitBull4_Shields:SetDescription(L["Display bars for remaining amount of shielding on the unit"])
+PitBull4_Shields.allow_animations = true
 PitBull4_Shields:SetDefaults({
 	enabled = false,
 	first = true,
@@ -213,7 +212,7 @@ end
 
 -- Need to return a value between 0 and 1 representing the %age of shield that's left
 -- To do this, we cycle through all shield types to know what the max vale of the shield was when it went up, as well as the current value
-function PitBull4_Shields:GetValue(frame, bar_db)
+function PitBull4_Shields:GetValue(frame)
 	if not frame.unit then return end
 	local dstGUID = UnitGUID(frame.unit)
 
@@ -224,8 +223,9 @@ function PitBull4_Shields:GetValue(frame, bar_db)
         max = max + (shields.max[dstGUID] or 0)
     end
 
+    local db = PitBull4_Shields:GetLayoutDB(frame)
     if(max == 0) then
-        return not bar_db.hide and 0 -- no shields are up, maybe hide when empty
+        return not db.hide and 0 -- no shields are up, maybe hide when empty
     end
 
 	-- IF we got here, then at least one shield is up
@@ -234,27 +234,27 @@ function PitBull4_Shields:GetValue(frame, bar_db)
 end
 
 
-function PitBull4_Shields:GetExampleValue(frame, bar_db)
+function PitBull4_Shields:GetExampleValue(frame)
 	return EXAMPLE_VALUE
 end
 
 
-function PitBull4_Shields:GetColor(frame, bar_db, value)
+function PitBull4_Shields:GetColor(frame, value)
 	return 1, 1, 1
 end
 
 
 PitBull4_Shields:SetLayoutOptionsFunction(function(self)
 	return "hide_empty", {
-		type = "toggle",
 		name = L["Hide empty bar"],
 		desc = L["Check this to hide the Shields bar if empty"],
+        type = "toggle",
 		get = function(info)
-			local bar_db = PitBull4.Options.GetBarLayoutDB(self)
+			local bar_db = PitBull4.Options.GetLayoutDB(self)
 			return bar_db and bar_db.hide
 		end,
 		set = function(info, value)
-			local bar_db = PitBull4.Options.GetBarLayoutDB(self)
+			local bar_db = PitBull4.Options.GetLayoutDB(self)
 			bar_db.hide = value
 
 			for frame in PitBull4:IterateFrames() do
@@ -267,11 +267,11 @@ PitBull4_Shields:SetLayoutOptionsFunction(function(self)
 	    name = L["Only cast by me"],
 	    desc = L["Check this to only show shields that you cast, rather than all shields on the unit"],
 	    get = function(info)
-	        local bar_db = PitBull4.Options.GetBarLayoutDB(self)
+	        local bar_db = PitBull4.Options.GetLayoutDB(self)
 			return bar_db and bar_db.just_mine
 		end,
 		set = function(info, value)
-			local bar_db = PitBull4.Options.GetBarLayoutDB(self)
+			local bar_db = PitBull4.Options.GetLayoutDB(self)
 	        bar_db.just_mine = value
 
 	        for frame in PitBull4:IterateFrames() do
