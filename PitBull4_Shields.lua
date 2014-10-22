@@ -92,6 +92,9 @@ PitBull4_Shields_combatFrame.shields = {
             [138979] = { max = {}, cur = {} }, -- Soul Barrier
             [140380] = { max = {}, cur = {} }, -- Hydra Sputum
 
+            -- Legendary healing mace
+            [64413] = { max = {}, cur = {} },  -- Protection of Ancient Kings
+
             -- Enchant
             [116631] = { max = {}, cur = {} }, -- Colossus
 }
