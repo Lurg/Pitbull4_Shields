@@ -6,3 +6,4 @@
 ## Version: @project-version@
 
 PitBull4_Shields.lua
+PitBull4_ShieldsText.lua
