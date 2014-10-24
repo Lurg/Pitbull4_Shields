@@ -66,6 +66,8 @@ end
 function PitBull4_Shields:GetValue(frame)
     local dstGUID = UnitGUID(frame.unit)
 
+    if not dstGUID then return 0 end
+
     local max = max_shields[dstGUID] or 0
     local cur = UnitGetTotalAbsorbs(frame.unit) or 0
 
