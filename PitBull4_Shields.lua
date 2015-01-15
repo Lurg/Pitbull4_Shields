@@ -24,7 +24,9 @@ timerFrame:Hide()
 
 local guids_to_update = {}
 
--- TODO: We are leaking elements in max_shields if there are active shields on a player when you stop receiving events for them; in other words if you miss the "UNIT_ABSORB_AMOUNT_CHANGED" that clears the shield, then that'll be leaked if you don't see subsequent events on that GUID
+-- TODO: We are leaking elements in max_shields if there are active shields on a player when you stop receiving events
+-- for them; in other words if you miss the "UNIT_ABSORB_AMOUNT_CHANGED" that clears the shield, then that'll be leaked
+-- if you don't see subsequent events on that GUID
 local max_shields = {} -- Mapping of GUID -> max_shield
 
 timerFrame:SetScript("OnUpdate", function()
@@ -56,8 +58,10 @@ function PitBull4_Shields:OnNewLayout(layout)
 
 	if layout_db.first then
 		layout_db.first = false
-		local default_bar = layout_db.elements[L["Default"]]
-		default_bar.exists = true
+        if(layout_db.elements) then
+    		local default_bar = layout_db.elements[L["Default"]]
+    		default_bar.exists = true
+        end
 	end
 end
 
