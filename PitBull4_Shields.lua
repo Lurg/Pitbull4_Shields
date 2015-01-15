@@ -1,6 +1,6 @@
 local PitBull4 = _G.PitBull4
 if not PitBull4 then
-	error("PitBull4_Shields requires PitBull4")
+    error("PitBull4_Shields requires PitBull4")
 end
 
 local EXAMPLE_VALUE = 5827
@@ -14,9 +14,9 @@ PitBull4_Shields:SetName(L["Shields"])
 PitBull4_Shields:SetDescription(L["Display bars for remaining amount of shielding on the unit"])
 PitBull4_Shields.allow_animations = true
 PitBull4_Shields:SetDefaults({
-	enabled = false,
-	first = true,
-	hide_empty = true,
+    enabled = false,
+    first = true,
+    hide_empty = true,
 })
 
 local timerFrame = CreateFrame("Frame")
@@ -24,7 +24,9 @@ timerFrame:Hide()
 
 local guids_to_update = {}
 
--- TODO: We are leaking elements in max_shields if there are active shields on a player when you stop receiving events for them; in other words if you miss the "UNIT_ABSORB_AMOUNT_CHANGED" that clears the shield, then that'll be leaked if you don't see subsequent events on that GUID
+-- TODO: We are leaking elements in max_shields if there are active shields on a player when you stop receiving events
+-- for them; in other words if you miss the "UNIT_ABSORB_AMOUNT_CHANGED" that clears the shield, then that'll be leaked
+-- if you don't see subsequent events on that GUID
 local max_shields = {} -- Mapping of GUID -> max_shield
 
 timerFrame:SetScript("OnUpdate", function()
@@ -42,23 +44,27 @@ function PitBull4_Shields:UNIT_ABSORB_AMOUNT_CHANGED(event, unit)
 end
 
 function PitBull4_Shields:OnEnable()
-	timerFrame:Show()
+    timerFrame:Show()
     self:RegisterEvent("UNIT_ABSORB_AMOUNT_CHANGED")
 end
 
 function PitBull4_Shields:OnDisable()
-	timerFrame:Hide()
+    timerFrame:Hide()
     self:UnregisterEvent("UNIT_ABSORB_AMOUNT_CHANGED")
 end
 
 function PitBull4_Shields:OnNewLayout(layout)
-	local layout_db = self.db.profile.layouts[layout]
+    local layout_db = self.db.profile.layouts[layout]
 
-	if layout_db.first then
-		layout_db.first = false
-		local default_bar = layout_db.elements[L["Default"]]
-		default_bar.exists = true
-	end
+    if layout_db.first then
+        layout_db.first = false
+        if(layout_db.elements) then
+            local default_bar = layout_db.elements[L["Default"]]
+            if(default_bar) then
+                default_bar.exists = true
+            end
+        end
+    end
 end
 
 -- Need to return a value between 0 and 1 representing the %age of shield that's left
@@ -88,33 +94,33 @@ end
 
 
 function PitBull4_Shields:GetExampleValue(frame)
-	return EXAMPLE_VALUE
+    return EXAMPLE_VALUE
 end
 
 
 function PitBull4_Shields:GetColor(frame, value)
-	return 1, 1, 1
+    return 1, 1, 1
 end
 
 
 PitBull4_Shields:SetLayoutOptionsFunction(function(self)
-	return "hide_empty", {
-		name = L["Hide empty bar"],
-		desc = L["Check this to hide the Shields bar if empty"],
+    return "hide_empty", {
+        name = L["Hide empty bar"],
+        desc = L["Check this to hide the Shields bar if empty"],
         type = "toggle",
-		get = function(info)
-			local bar_db = PitBull4.Options.GetLayoutDB(self)
-			return bar_db and bar_db.hide
-		end,
-		set = function(info, value)
-			local bar_db = PitBull4.Options.GetLayoutDB(self)
-			bar_db.hide = value
+        get = function(info)
+            local bar_db = PitBull4.Options.GetLayoutDB(self)
+            return bar_db and bar_db.hide
+        end,
+        set = function(info, value)
+            local bar_db = PitBull4.Options.GetLayoutDB(self)
+            bar_db.hide = value
 
-			for frame in PitBull4:IterateFrames() do
-				self:Clear(frame)
-			end
-			self:UpdateAll()
-		end
-	}
+            for frame in PitBull4:IterateFrames() do
+                self:Clear(frame)
+            end
+            self:UpdateAll()
+        end
+    }
 end)
 

@@ -33,4 +33,4 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareA
 
 Bugs
 ----
-No doubt there's lots of bugs.  You can let me know about them [here](https://github.com/hughescr/Pitbull4_Shields/issues).  I might even fix them if you let me know.
+No doubt there's lots of bugs.  You can let me know about them [here](https://github.com/Lurg/Pitbull4_Shields/issues).  I might even fix them if you let me know.
